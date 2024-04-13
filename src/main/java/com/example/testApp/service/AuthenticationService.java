@@ -1,14 +1,16 @@
-package com.example.testApp.user;
+package com.example.testApp.service;
 
-import com.example.testApp.config.JwtService;
 import com.example.testApp.dao.UserRepository;
+import com.example.testApp.dto.AuthenticateRequest;
+import com.example.testApp.dto.AuthenticationResponse;
+import com.example.testApp.dto.RegisterRequest;
+import com.example.testApp.entities.Role;
+import com.example.testApp.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -46,4 +48,6 @@ private final AuthenticationManager authenticationManager;
                 .token(jwtToken)
                 .build();
     }
+
+
 }
